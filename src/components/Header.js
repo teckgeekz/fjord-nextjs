@@ -5,7 +5,6 @@ import _ from 'lodash';
 import { getPageUrl, classNames, Link, withPrefix } from '../utils';
 import Action from './Action';
 import ActionIcon from './ActionIcon';
-import HeaderImage from './HeaderImage';
 
 export default class Header extends React.Component {
     constructor(props) {
@@ -87,7 +86,12 @@ export default class Header extends React.Component {
 
         return (
             <header className="site-header">
-                {image && <HeaderImage image={image} />}
+                {image && (
+                    <div className="site-header-bg">
+                        <img src={withPrefix(image)} className="site-header-bg-img" alt="" />
+                        <div className="site-header-bg-gradient" />
+                    </div>
+                )}
                 <div className="site-header-scroll">
                     <div className="site-header-inside">
                         <div className="site-header-vertical">
